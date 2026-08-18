@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yasir Hamadelnil | IT Project Manager & Systems Administrator</title>
+    
+    <!-- AOS Library CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <style>
+        :root {
+            --bg-main: #ffffff;
+            --bg-alt: #f8fafc;
+            --bg-card: #ffffff;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --text-heading: #0f172a;
+            --text-body: #334155;
+            --text-muted: #64748b;
+            --border-light: #e2e8f0;
+            --radius-lg: 12px;
+            --radius-md: 8px;
+            --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* --- Navigation --- */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-heading);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-body);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 5rem 0 4rem;
+            background-color: var(--bg-main);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: #eff6ff;
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            border: 1px solid #bfdbfe;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            color: var(--text-heading);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 0.85rem 2rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+        }
+
+        .hero-image-wrapper {
+            text-align: center;
+        }
+
+        /* Borderless Profile Image */
+        .hero-img {
+            width: 100%;
+            max-width: 320px;
+            border-radius: var(--radius-lg);
+            box-shadow: none;
+            border: none;
+            object-fit: cover;
+        }
+
+        /* --- Section Styling --- */
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .bg-alt {
+            background-color: var(--bg-alt);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.25rem;
+            color: var(--text-heading);
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+        }
+
+        /* --- Cards & Grid Layout --- */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            padding: 2.25rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-card);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px -10px rgba(37, 99, 235, 0.15);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            color: var(--text-heading);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- Project Card Extras --- */
+        .project-tag {
+            display: inline-block;
+            background-color: #eff6ff;
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+            border: 1px solid #bfdbfe;
+        }
+
+        .project-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .project-list li {
+            font-size: 0.95rem;
+            color: var(--text-body);
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.25rem;
+        }
+
+        .project-list li::before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* --- About Section --- */
+        .about-card {
+            background-color: var(--bg-card);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-card);
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-card p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-body);
+        }
+
+        /* --- Contact Form --- */
+        .contact-form {
+            background-color: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-card);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-heading);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.85rem;
+            background-color: var(--bg-alt);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            color: var(--text-heading);
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-light);
+            font-size: 0.9rem;
+            background-color: var(--bg-main);
+        }
+
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .nav-links {
+                display: none;
+            }
+            .about-card {
+                padding: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Yasir <span>Hamadelnil</span></a>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <span class="hero-badge">Available for Enterprise Projects</span>
+                    <h1>IT Project Manager & Systems Administrator</h1>
+                    <p>Delivering reliable cloud infrastructure, enterprise application deployments, and ITIL service alignment to scale operational success.</p>
+                    <a href="#contact" class="btn-primary">Get In Touch</a>
+                </div>
+                <div class="hero-image-wrapper" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="profile.jpg.jpg" alt="Yasir Hamadelnil" class="hero-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-alt">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="800">
+                <h2>Services & Expertise</h2>
+                <p>Technical solutions tailored for organizational growth</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                    <h3>Cloud Infrastructure</h3>
+                    <p>Management and migration across Microsoft Azure, Oracle Cloud (OCI), and hybrid server environments.</p>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="250" data-aos-duration="800">
+                    <h3>Enterprise Applications</h3>
+                    <p>Large-scale user migrations for M365, Active Directory governance, and Odoo ERP systems.</p>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
+                    <h3>ITIL Service Management</h3>
+                    <p>Streamlined incident management, SOP execution, and continuous SLA monitoring.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="800">
+                <h2>Featured Projects</h2>
+                <p>Proven track record of high-impact IT rollouts</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                    <span class="project-tag">1,000+ Users Migration</span>
+                    <h3>Enterprise M365 Deployment</h3>
+                    <ul class="project-list">
+                        <li>Transitioned 1,000+ enterprise users with zero downtime.</li>
+                        <li>Managed endpoint configuration and user acceptance testing.</li>
+                        <li>Achieved a 100% deployment success rate.</li>
+                    </ul>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="250" data-aos-duration="800">
+                    <span class="project-tag">12+ Retail Locations</span>
+                    <h3>Odoo ERP Warehouse Migration</h3>
+                    <ul class="project-list">
+                        <li>Replaced expensive legacy ERP systems across multi-site operations.</li>
+                        <li>Increased operational efficiency by 30%.</li>
+                        <li>Slashed OPEX by 60%.</li>
+                    </ul>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
+                    <span class="project-tag">Branch Launch</span>
+                    <h3>Canadian Infrastructure Rollout</h3>
+                    <ul class="project-list">
+                        <li>Launched branch IT & server infrastructure within 2 weeks.</li>
+                        <li>Deployed 10+ Azure VMs, Active Directory, and backup DR.</li>
+                        <li>Maintained 99.9% uptime with 20% reduced downtime over 6 months.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-alt">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="800">
+                <h2>About Me</h2>
+                <p>Bridging technology and business execution</p>
+            </div>
+            <div class="about-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                <p>I am an IT professional with over 10 years of experience in technical support, system administration, and IT service management within enterprise environments. Based in Milton, Ontario, I specialize in streamlining operations, minimizing downtime, and establishing modern, secure cloud and on-premise infrastructure aligned with ITIL framework best practices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="800">
+                <h2>Contact Me</h2>
+                <p>Let's discuss your next IT project</p>
+            </div>
+            <form class="contact-form" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" onsubmit="event.preventDefault(); alert('Message sent!');">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="4" placeholder="How can I help you?" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2026 Yasir Hamadelnil. All rights reserved.
+    </footer>
+
+    <!-- AOS JavaScript Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            easing: 'ease-out-cubic',
+            offset: 120
+        });
+    </script>
+</body>
+</html>
