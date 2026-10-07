@@ -1,494 +1,1186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yasir Hamadelnil | IT Project Manager & Cloud/Systems Administrator</title>
-    
-    <!-- AOS Library CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-
-    <style>
-        :root {
-            --bg-main: #ffffff;
-            --bg-alt: #f8fafc;
-            --bg-card: #ffffff;
-            --primary: #2563eb;
-            --primary-hover: #1d4ed8;
-            --text-heading: #0f172a;
-            --text-body: #334155;
-            --text-muted: #64748b;
-            --border-light: #e2e8f0;
-            --radius-lg: 12px;
-            --radius-md: 8px;
-            --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-body);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* --- Navigation --- */
-        header {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.25rem 0;
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--text-heading);
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-body);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            padding: 5rem 0 4rem;
-            background-color: var(--bg-main);
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background-color: #eff6ff;
-            color: var(--primary);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 1.25rem;
-            border: 1px solid #bfdbfe;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            font-weight: 800;
-            color: var(--text-heading);
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background-color: var(--primary);
-            color: #ffffff;
-            padding: 0.85rem 2rem;
-            border-radius: var(--radius-md);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
-        }
-
-        .hero-image-wrapper {
-            text-align: center;
-        }
-
-        /* Borderless Profile Image */
-        .hero-img {
-            width: 100%;
-            max-width: 320px;
-            border-radius: var(--radius-lg);
-            box-shadow: none;
-            border: none;
-            object-fit: cover;
-        }
-
-        /* --- Section Styling --- */
-        .section-padding {
-            padding: 5rem 0;
-        }
-
-        .bg-alt {
-            background-color: var(--bg-alt);
-            border-top: 1px solid var(--border-light);
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.25rem;
-            color: var(--text-heading);
-            margin-bottom: 0.5rem;
-            font-weight: 800;
-        }
-
-        .section-title p {
-            color: var(--text-muted);
-        }
-
-        /* --- Cards & Grid Layout --- */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background-color: var(--bg-card);
-            padding: 2.25rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-card);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary);
-            box-shadow: 0 15px 30px -10px rgba(37, 99, 235, 0.15);
-        }
-
-        .card h3 {
-            font-size: 1.3rem;
-            color: var(--text-heading);
-            margin-bottom: 0.75rem;
-            font-weight: 700;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* --- Project Card Extras --- */
-        .project-tag {
-            display: inline-block;
-            background-color: #eff6ff;
-            color: var(--primary);
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            margin-bottom: 1rem;
-            border: 1px solid #bfdbfe;
-        }
-
-        .project-list {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .project-list li {
-            font-size: 0.95rem;
-            color: var(--text-body);
-            margin-bottom: 0.5rem;
-            position: relative;
-            padding-left: 1.25rem;
-        }
-
-        .project-list li::before {
-            content: "✓";
-            color: var(--primary);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        /* --- About Section --- */
-        .about-card {
-            background-color: var(--bg-card);
-            padding: 3rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-card);
-            max-width: 850px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-card p {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: var(--text-body);
-        }
-
-        /* --- Contact Form --- */
-        .contact-form {
-            background-color: var(--bg-card);
-            padding: 2.5rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-card);
-            max-width: 650px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-heading);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.85rem;
-            background-color: var(--bg-alt);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-md);
-            color: var(--text-heading);
-            font-size: 0.95rem;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            background-color: #ffffff;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border-light);
-            font-size: 0.9rem;
-            background-color: var(--bg-main);
-        }
-
-        @media (max-width: 768px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yasir Hamadelnil | Certified SAFe® 6 Agilist, IT Project Manager & Cloud Specialist</title>
+  
+  <meta name="description" content="Executive portfolio of Yasir Hamadelnil, Certified SAFe® 6 Agilist, IT Project Manager & Cloud Infrastructure Delivery Lead with 10+ years directing mission-critical enterprise systems in Canada and globally.">
+  <meta name="keywords" content="IT Project Manager, Cloud Engineer, SAFe 6 Agilist, Systems Administrator, Microsoft Azure, Entra ID, VMware, Toronto, Milton, Ontario">
+  <meta name="author" content="Yasir Hamadelnil">
+  
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="Yasir Hamadelnil | IT Project Manager & Cloud Specialist">
+  <meta property="og:description" content="Certified SAFe® 6 Agilist directing enterprise IT infrastructure, disaster recovery, and multi-cloud delivery.">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          colors: {
+            brand: {
+              cyan: '#22d3ee',
+              teal: '#14b8a6',
+              emerald: '#10b981',
+              purple: '#a855f7',
+              blue: '#3b82f6'
+            },
+            dark: {
+              base: '#090d16',
+              surface: '#0f172a',
+              card: '#131e33',
+              cardHover: '#182640',
+              border: 'rgba(255, 255, 255, 0.08)',
+              borderHover: 'rgba(34, 211, 238, 0.3)'
             }
-            .nav-links {
-                display: none;
-            }
-            .about-card {
-                padding: 1.75rem;
-            }
+          }
         }
-    </style>
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090d16;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0891b2;
+    }
+
+    /* Ambient Glow Effects */
+    .glow-cyan {
+      box-shadow: 0 0 40px -10px rgba(34, 211, 238, 0.25);
+    }
+    .glow-emerald {
+      box-shadow: 0 0 40px -10px rgba(16, 185, 129, 0.25);
+    }
+    .glow-card {
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Subtle Animated Grid Background */
+    .bg-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+  </style>
 </head>
-<body>
+<body class="bg-dark-base text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-black">
 
-    <!-- Header Navigation -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">Yasir <span>Hamadelnil</span></a>
-                <ul class="nav-links">
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+  <!-- ========================================================================= -->
+  <!-- 1. STICKY EXECUTIVE NAVIGATION -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-50 bg-dark-base/85 backdrop-blur-md border-b border-dark-border transition-all">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo / Monogram -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 via-slate-900 to-purple-500/20 border border-cyan-500/40 flex items-center justify-center shadow-lg shadow-cyan-500/10 group-hover:scale-105 transition-transform">
+          <span class="font-mono font-black text-cyan-400 text-sm tracking-wider">YH</span>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-grid">
-                <div data-aos="fade-right" data-aos-duration="1000">
-                    <span class="hero-badge">Available for Enterprise Projects</span>
-                    <h1>IT Project Manager & Cloud/Systems Administrator</h1>
-                    <p>Delivering reliable cloud infrastructure, enterprise application deployments, and ITIL service alignment to scale operational success.</p>
-                    <a href="#contact" class="btn-primary">Get In Touch</a>
-                </div>
-                <div class="hero-image-wrapper" data-aos="fade-left" data-aos-duration="1000">
-                    <img src="profile.jpg.jpg" alt="Yasir Hamadelnil" class="hero-img">
-                </div>
-            </div>
+        <div>
+          <div class="font-bold text-white text-sm tracking-tight flex items-center gap-2">
+            Yasir Hamadelnil
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800/60 hidden sm:inline-block">SAFe® 6</span>
+          </div>
+          <div class="text-[11px] text-slate-400">IT Project Manager & Cloud Specialist</div>
         </div>
-    </section>
+      </a>
 
-    <!-- Services Section -->
-    <section id="services" class="section-padding bg-alt">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up" data-aos-duration="800">
-                <h2>Services & Expertise</h2>
-                <p>Technical solutions tailored for organizational growth</p>
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-xs font-medium text-slate-300">
+        <a href="#specializations" class="hover:text-cyan-400 transition">Specializations</a>
+        <a href="#case-studies" class="hover:text-cyan-400 transition">Case Studies</a>
+        <a href="#skills" class="hover:text-cyan-400 transition">Skills Matrix</a>
+        <a href="#experience" class="hover:text-cyan-400 transition">Experience</a>
+        <a href="#credentials" class="hover:text-cyan-400 transition">Credentials</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <!-- Resume Dropdown / Download -->
+        <a href="/api/jobs/download?file=Yasir_Hamadelnil_Master_Resume&ext=pdf&master=true" target="_blank" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-semibold border border-slate-700/80 flex items-center gap-2 transition hover:border-cyan-500/50 shadow-sm" title="Download Master Resume PDF">
+          <i data-lucide="file-down" class="w-4 h-4 text-cyan-400"></i>
+          <span class="hidden sm:inline">Resume</span> <span class="text-cyan-400 font-mono text-[11px]">.PDF</span>
+        </a>
+
+        <!-- Contact CTA -->
+        <a href="#contact" class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400 text-slate-950 text-xs font-bold flex items-center gap-1.5 shadow-md shadow-cyan-500/20 transition-transform hover:scale-[1.02]">
+          <span>Get In Touch</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 2. HERO SECTION -->
+  <!-- ========================================================================= -->
+  <section class="relative pt-16 pb-20 overflow-hidden bg-grid">
+    <!-- Ambient radial glow behind hero -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[350px] bg-gradient-to-tr from-cyan-500/10 via-purple-500/10 to-transparent blur-3xl pointer-events-none rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Executive Bio & CTAs -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Status Pill -->
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-xs font-mono text-cyan-300 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>AVAILABLE FOR SENIOR IT PM & CLOUD ROLES • GTA & REMOTE</span>
+          </div>
+
+          <!-- Main Title -->
+          <div class="space-y-3">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
+              Engineering Resilient Infrastructure. <br>
+              <span class="bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400 bg-clip-text text-transparent">
+                Leading Agile Delivery.
+              </span>
+            </h1>
+            <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl">
+              I am an enterprise IT Project Manager and Cloud Infrastructure Specialist with over a decade of hands-on experience directing mission-critical architectures ($0.5M–$2M scope), multi-site disaster recovery, and cross-functional teams across telecommunications, financial services, and retail.
+            </p>
+          </div>
+
+          <!-- Verified Badges Strip -->
+          <div class="flex flex-wrap items-center gap-2.5 text-xs text-slate-300">
+            <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-card border border-dark-border">
+              <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
+              <span class="font-semibold text-white">SAFe® 6 Agilist</span>
             </div>
-            <div class="cards-grid">
-                <div class="card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
-                    <h3>Cloud Infrastructure</h3>
-                    <p>Management and migration across Microsoft Azure, Oracle Cloud (OCI), and hybrid server environments.</p>
-                </div>
-                <div class="card" data-aos="fade-up" data-aos-delay="250" data-aos-duration="800">
-                    <h3>Enterprise Applications</h3>
-                    <p>Large-scale user migrations for M365, Active Directory governance, and Odoo ERP systems.</p>
-                </div>
-                <div class="card" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
-                    <h3>ITIL Service Management</h3>
-                    <p>Streamlined incident management, SOP execution, and continuous SLA monitoring.</p>
-                </div>
+            <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-card border border-dark-border">
+              <i data-lucide="cloud" class="w-4 h-4 text-cyan-400"></i>
+              <span>Microsoft Azure & Entra ID</span>
             </div>
+            <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-card border border-dark-border">
+              <i data-lucide="server" class="w-4 h-4 text-purple-400"></i>
+              <span>Windows Server (SME) & VMware</span>
+            </div>
+            <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-card border border-dark-border">
+              <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400"></i>
+              <span>Milton, ON (Permanent Resident)</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#case-studies" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-teal-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-bold text-sm flex items-center gap-2 shadow-lg shadow-cyan-500/20 transition-all hover:scale-105">
+              <i data-lucide="layers" class="w-4 h-4"></i>
+              <span>Explore Case Studies</span>
+            </a>
+
+            <a href="/api/jobs/download?file=Yasir_Hamadelnil_Master_Resume&ext=docx&master=true" target="_blank" class="px-5 py-3.5 rounded-xl bg-dark-card hover:bg-dark-cardHover text-slate-200 font-semibold text-sm border border-dark-border hover:border-slate-600 flex items-center gap-2 transition">
+              <i data-lucide="file-text" class="w-4 h-4 text-cyan-400"></i>
+              <span>Master Resume (.docx)</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/yasir-hamadelnil" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl bg-dark-card hover:bg-dark-cardHover text-slate-300 hover:text-white border border-dark-border transition" title="LinkedIn Profile">
+              <i data-lucide="linkedin" class="w-4 h-4 text-blue-400"></i>
+            </a>
+          </div>
+
         </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section-padding">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up" data-aos-duration="800">
-                <h2>Featured Projects</h2>
-                <p>Proven track record of high-impact IT rollouts</p>
+        <!-- Right Column: Profile Showcase Card -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-md">
+            
+            <!-- Glowing background card frame -->
+            <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-cyan-500/30 via-purple-500/20 to-teal-500/30 blur-xl opacity-75"></div>
+
+            <div class="relative rounded-3xl bg-dark-card border border-dark-border p-6 shadow-2xl space-y-6">
+              
+              <!-- Photo Container -->
+              <div class="relative w-full aspect-[4/4.5] rounded-2xl overflow-hidden bg-slate-950 border border-slate-800">
+                <img src="profile.jpg" onerror="this.src='profile.jpg.jpg'" alt="Yasir Hamadelnil" class="w-full h-full object-cover object-top filter contrast-[1.05]" />
+                
+                <!-- Bottom gradient overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-dark-base via-transparent to-transparent opacity-80"></div>
+
+                <!-- Floating Bottom Badge -->
+                <div class="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-dark-surface/90 backdrop-blur-md border border-dark-border text-xs flex items-center justify-between">
+                  <div>
+                    <div class="font-bold text-white">Yasir Hamadelnil</div>
+                    <div class="text-[11px] text-cyan-400 font-mono">SAFe® 6 Agilist • B.IT • PG-Dip</div>
+                  </div>
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 ring-4 ring-emerald-950"></span>
+                </div>
+              </div>
+
+              <!-- Quick Highlights Grid -->
+              <div class="grid grid-cols-2 gap-3 text-xs">
+                <div class="p-3 rounded-xl bg-dark-surface/70 border border-dark-border space-y-1">
+                  <div class="text-slate-400 font-medium">Primary Focus</div>
+                  <div class="font-bold text-white flex items-center gap-1.5">
+                    <i data-lucide="briefcase" class="w-3.5 h-3.5 text-cyan-400"></i>
+                    <span>IT Project Lead</span>
+                  </div>
+                </div>
+                <div class="p-3 rounded-xl bg-dark-surface/70 border border-dark-border space-y-1">
+                  <div class="text-slate-400 font-medium">Core Stack</div>
+                  <div class="font-bold text-white flex items-center gap-1.5">
+                    <i data-lucide="cloud" class="w-3.5 h-3.5 text-emerald-400"></i>
+                    <span>Azure & VMware</span>
+                  </div>
+                </div>
+              </div>
+
             </div>
-            <div class="cards-grid">
-                <div class="card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
-                    <span class="project-tag">1,000+ Users Migration</span>
-                    <h3>Enterprise M365 Deployment</h3>
-                    <ul class="project-list">
-                        <li>Transitioned 1,000+ enterprise users with zero downtime.</li>
-                        <li>Managed endpoint configuration and user acceptance testing.</li>
-                        <li>Achieved a 100% deployment success rate.</li>
-                    </ul>
-                </div>
-                <div class="card" data-aos="fade-up" data-aos-delay="250" data-aos-duration="800">
-                    <span class="project-tag">12+ Retail Locations</span>
-                    <h3>Odoo ERP Warehouse Migration</h3>
-                    <ul class="project-list">
-                        <li>Replaced expensive legacy ERP systems across multi-site operations.</li>
-                        <li>Increased operational efficiency by 30%.</li>
-                        <li>Slashed OPEX by 60%.</li>
-                    </ul>
-                </div>
-                <div class="card" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
-                    <span class="project-tag">Branch Launch</span>
-                    <h3>Canadian Infrastructure Rollout</h3>
-                    <ul class="project-list">
-                        <li>Launched branch IT & server infrastructure within 2 weeks.</li>
-                        <li>Deployed 10+ Azure VMs, Active Directory, and backup DR.</li>
-                        <li>Maintained 99.9% uptime with 20% reduced downtime over 6 months.</li>
-                    </ul>
-                </div>
-            </div>
+
+          </div>
         </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="section-padding bg-alt">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up" data-aos-duration="800">
-                <h2>About Me</h2>
-                <p>Bridging technology and business execution</p>
-            </div>
-            <div class="about-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
-                <p>I am an IT professional with over 10 years of experience in technical support, system administration, and IT service management within enterprise environments. Based in Milton, Ontario, I specialize in streamlining operations, minimizing downtime, and establishing modern, secure cloud and on-premise infrastructure aligned with ITIL framework best practices.</p>
-            </div>
+      </div>
+
+      <!-- Executive KPI Ribbon (4 Metrics) -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-16 pt-10 border-t border-dark-border">
+        
+        <div class="p-5 rounded-2xl bg-dark-card/60 border border-dark-border space-y-1 hover:border-cyan-500/40 transition">
+          <div class="text-3xl sm:text-4xl font-black text-white font-mono">10+ <span class="text-cyan-400 text-2xl">Yrs</span></div>
+          <div class="text-xs font-semibold text-slate-300">Enterprise Systems Delivery</div>
+          <div class="text-[11px] text-slate-400">Full lifecycle SDLC & infrastructure governance</div>
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section-padding">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up" data-aos-duration="800">
-                <h2>Contact Me</h2>
-                <p>Let's discuss your next IT project</p>
+        <div class="p-5 rounded-2xl bg-dark-card/60 border border-dark-border space-y-1 hover:border-teal-500/40 transition">
+          <div class="text-3xl sm:text-4xl font-black text-teal-300 font-mono">$0.5M–$2M</div>
+          <div class="text-xs font-semibold text-slate-300">Project Financial Scope</div>
+          <div class="text-[11px] text-slate-400">Delivered within budget and on critical path</div>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-dark-card/60 border border-dark-border space-y-1 hover:border-purple-500/40 transition">
+          <div class="text-3xl sm:text-4xl font-black text-purple-300 font-mono">1,000+</div>
+          <div class="text-xs font-semibold text-slate-300">Enterprise Users Migrated</div>
+          <div class="text-[11px] text-slate-400">Zero downtime M365 & Entra ID hybrid sync</div>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-dark-card/60 border border-dark-border space-y-1 hover:border-emerald-500/40 transition">
+          <div class="text-3xl sm:text-4xl font-black text-emerald-400 font-mono">99.98%</div>
+          <div class="text-xs font-semibold text-slate-300">High Availability SLA</div>
+          <div class="text-[11px] text-slate-400">Utility-grade disaster recovery architecture</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 3. STRATEGIC SPECIALIZATIONS (3 CORE PILLARS) -->
+  <!-- ========================================================================= -->
+  <section id="specializations" class="py-20 bg-dark-surface/40 border-t border-b border-dark-border">
+    <div class="max-w-7xl mx-auto px-6 space-y-12">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-widest">Core Capabilities</span>
+        <h2 class="text-3xl font-extrabold text-white tracking-tight">Strategic Areas of Expertise</h2>
+        <p class="text-sm text-slate-400">
+          Bridging technical architectural depth with executive Agile governance to deliver high-impact enterprise outcomes.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Pillar 1: Project Management -->
+        <div class="p-8 rounded-3xl bg-dark-card border border-dark-border hover:border-cyan-500/40 transition-all space-y-5 glow-card">
+          <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold">
+            <i data-lucide="target" class="w-6 h-6"></i>
+          </div>
+          <div class="space-y-2">
+            <h3 class="text-lg font-bold text-white">IT Project Management & Agile Governance</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Certified Scaled Agile Framework (SAFe 6 Agilist) and Google PM credentials guiding cross-functional teams (developers, architects, BAs, QA, operations) through the full SDLC.
+            </p>
+          </div>
+          <ul class="text-xs text-slate-300 space-y-2.5 pt-2 border-t border-slate-800">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0"></i> Sprint Planning & Backlog Grooming (Jira / Azure DevOps)</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0"></i> Work Breakdown Structure (WBS) & MS Project Schedules</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0"></i> Scope Management, Budget Controls & Vendor RFPs</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0"></i> Risk Mitigation & Executive Stakeholder Reporting</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 2: Cloud Infrastructure -->
+        <div class="p-8 rounded-3xl bg-dark-card border border-dark-border hover:border-teal-500/40 transition-all space-y-5 glow-card">
+          <div class="w-12 h-12 rounded-2xl bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center font-bold">
+            <i data-lucide="cloud" class="w-6 h-6"></i>
+          </div>
+          <div class="space-y-2">
+            <h3 class="text-lg font-bold text-white">Cloud Platforms & Hybrid Identity</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Comprehensive cloud infrastructure design across Microsoft Azure and Oracle Cloud (OCI). Deep mastery in hybrid identity synchronization for large-scale enterprise estates.
+            </p>
+          </div>
+          <ul class="text-xs text-slate-300 space-y-2.5 pt-2 border-t border-slate-800">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i> Azure Virtual Machines, VNets & Network Security Groups</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i> Microsoft Entra ID (Azure AD) & Azure AD Connect Sync</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i> Role-Based Access Control (RBAC), MFA & Security Hardening</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0"></i> Azure SQL Database, Static Web Apps & Serverless Functions</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 3: Systems & Data Center -->
+        <div class="p-8 rounded-3xl bg-dark-card border border-dark-border hover:border-purple-500/40 transition-all space-y-5 glow-card">
+          <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center font-bold">
+            <i data-lucide="server" class="w-6 h-6"></i>
+          </div>
+          <div class="space-y-2">
+            <h3 class="text-lg font-bold text-white">Systems, SAN Fabrics & Disaster Recovery</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Windows Server Subject Matter Expert (SME) with extensive virtualization and storage engineering experience across VMware ESXi, Huawei Dorado all-flash SAN, and HA clusters.
+            </p>
+          </div>
+          <ul class="text-xs text-slate-300 space-y-2.5 pt-2 border-t border-slate-800">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400 shrink-0"></i> Windows Server (2012–2022) SME & Active Directory DS</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400 shrink-0"></i> VMware vSphere / ESXi Clusters & vCenter Server</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400 shrink-0"></i> Huawei OceanStor Dorado 6000 All-Flash SAN Fabrics</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400 shrink-0"></i> Multi-Site Disaster Recovery (DR) & HA Firewall Clustering</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 4. FEATURED PROJECT CASE STUDIES (FILTERABLE BENTO GRID) -->
+  <!-- ========================================================================= -->
+  <section id="case-studies" class="py-24">
+    <div class="max-w-7xl mx-auto px-6 space-y-12">
+      
+      <!-- Section Header & Filter Controls -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div class="space-y-2">
+          <span class="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-widest">Enterprise Portfolio</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Featured Case Studies</h2>
+          <p class="text-sm text-slate-400 max-w-xl">
+            Real enterprise engagements demonstrating technical delivery, budget governance, and tangible business metrics.
+          </p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap items-center gap-2" id="project-filters">
+          <button class="filter-btn active px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500 text-slate-950 transition" data-filter="all">All (6)</button>
+          <button class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium bg-dark-card hover:bg-slate-800 text-slate-300 border border-dark-border transition" data-filter="pm">Project Management (3)</button>
+          <button class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium bg-dark-card hover:bg-slate-800 text-slate-300 border border-dark-border transition" data-filter="cloud">Cloud & Infrastructure (3)</button>
+          <button class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium bg-dark-card hover:bg-slate-800 text-slate-300 border border-dark-border transition" data-filter="erp">WMS & ERP (2)</button>
+        </div>
+      </div>
+
+      <!-- Case Studies Bento Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+        
+        <!-- Case Study 1: Data Center DR (Zain) -->
+        <div class="project-card p-7 rounded-3xl bg-dark-card border border-dark-border hover:border-cyan-500/50 transition-all space-y-4 glow-card flex flex-col justify-between" data-category="cloud pm">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-800/60">Telecommunications</span>
+              <span class="text-[11px] font-mono text-emerald-400">99.98% SLA</span>
             </div>
-            <form class="contact-form" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" onsubmit="event.preventDefault(); alert('Message sent!');">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="Your Name" required>
+            <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition">
+              Multi-Site Data Center Redesign & Disaster Recovery
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Directed enterprise DR deployment for Zain KTN DC to Port Sudan DC, commissioning Huawei Dorado 6000 all-flash SAN array, VMware ESXi compute clusters, optical DWDM links, and 3 firewall HA clusters 100% on schedule.
+            </p>
+          </div>
+          
+          <div class="space-y-3 pt-3 border-t border-slate-800/80">
+            <div class="text-[11px] font-mono text-slate-400 space-y-1">
+              <div><strong class="text-slate-300">Scale:</strong> 1,000+ Enterprise Users • Multi-Site</div>
+              <div><strong class="text-slate-300">Stack:</strong> Huawei OceanStor Dorado 6000, VMware, DWDM</div>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Huawei SAN</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">VMware ESXi</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">HA Firewalls</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 2: WMS & Oracle ERP ($191K / $788K) -->
+        <div class="project-card p-7 rounded-3xl bg-dark-card border border-dark-border hover:border-cyan-500/50 transition-all space-y-4 glow-card flex flex-col justify-between" data-category="pm erp">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-amber-950 text-amber-300 border border-amber-800/60">Supply Chain / WMS</span>
+              <span class="text-[11px] font-mono text-cyan-400">$191K WMS Scope</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">
+              Enterprise WMS & Oracle ERP Host Integration
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Managed the $191K EPG LFS V9 integration with core Oracle ERP across 4 warehouses, directing FSD/IFD specs, IPsec VPN, EPG TIMESQUARE cockpit, RF handheld terminal scanning (EAN128), and UAT on schedule under a $788K contract.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-3 border-t border-slate-800/80">
+            <div class="text-[11px] font-mono text-slate-400 space-y-1">
+              <div><strong class="text-slate-300">Scope:</strong> 4 Regional Warehouses • Wall-to-Wall Inventory</div>
+              <div><strong class="text-slate-300">Stack:</strong> EPG LFS V9, Oracle ERP, IPsec VPN, RF Terminals</div>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">EPG LFS V9</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Oracle ERP</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">FSD / IFD</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 3: M365 & Entra ID (1,000+ Users) -->
+        <div class="project-card p-7 rounded-3xl bg-dark-card border border-dark-border hover:border-cyan-500/50 transition-all space-y-4 glow-card flex flex-col justify-between" data-category="cloud pm">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-purple-950 text-purple-300 border border-purple-800/60">Enterprise Cloud</span>
+              <span class="text-[11px] font-mono text-emerald-400">100% Adoption</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">
+              Microsoft 365 Enterprise Migration & Hybrid Identity
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Transitioned 1,000+ enterprise users to Microsoft 365 with Azure AD Connect hybrid identity synchronization and Entra ID governance, achieving 100% user adoption on schedule with zero unscheduled business downtime.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-3 border-t border-slate-800/80">
+            <div class="text-[11px] font-mono text-slate-400 space-y-1">
+              <div><strong class="text-slate-300">Outcome:</strong> Zero Downtime • Modern Workplace</div>
+              <div><strong class="text-slate-300">Stack:</strong> Microsoft 365, Azure AD Connect, Entra ID, MFA</div>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">M365 Admin</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Azure AD Connect</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Hybrid Identity</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 4: Home Express Canada Rollout -->
+        <div class="project-card p-7 rounded-3xl bg-dark-card border border-dark-border hover:border-cyan-500/50 transition-all space-y-4 glow-card flex flex-col justify-between" data-category="cloud pm">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800/60">Financial Services</span>
+              <span class="text-[11px] font-mono text-cyan-400">2-Week Launch</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">
+              Canadian Branch Infrastructure & Remittance Delivery
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Planned and launched complete IT and cloud networking for the Mississauga branch within 2 weeks, linking Azure VNets to UK data centers via IPsec VPN and coordinating iOS/Android remittance app releases with 95% first-time UAT pass rate.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-3 border-t border-slate-800/80">
+            <div class="text-[11px] font-mono text-slate-400 space-y-1">
+              <div><strong class="text-slate-300">Compliance:</strong> 100% Canadian Financial Regulation Compliance</div>
+              <div><strong class="text-slate-300">Stack:</strong> Azure VNets, Windows Server VMs, Azure NSGs, IPsec</div>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Azure VNets</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Mobile Apps</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">FinTech Security</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 5: Retail ERP (SAP to Odoo) -->
+        <div class="project-card p-7 rounded-3xl bg-dark-card border border-dark-border hover:border-cyan-500/50 transition-all space-y-4 glow-card flex flex-col justify-between" data-category="erp">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-blue-950 text-blue-300 border border-blue-800/60">Retail Franchise</span>
+              <span class="text-[11px] font-mono text-emerald-400">-60% OpEx</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">
+              Corporate ERP Migration (SAP to Odoo 8 / 11)
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Migrated retail operations from SAP to Odoo ERP across 12 branch locations within 9 months, cutting operational software expenses (OpEx) by 60% with zero data loss. Upgraded to Odoo 11 and validated POS terminal compatibility across all stores.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-3 border-t border-slate-800/80">
+            <div class="text-[11px] font-mono text-slate-400 space-y-1">
+              <div><strong class="text-slate-300">Locations:</strong> 12 Optical Stores & Central Labs • 500+ Staff</div>
+              <div><strong class="text-slate-300">Stack:</strong> Odoo ERP, SAP Migration, POS Terminals, Active Directory</div>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Odoo ERP</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">SAP Migration</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">POS Hardware</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 6: Cloud-Native Web Platform & PMS -->
+        <div class="project-card p-7 rounded-3xl bg-dark-card border border-dark-border hover:border-cyan-500/50 transition-all space-y-4 glow-card flex flex-col justify-between" data-category="cloud pm">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-800/60">Modern Web & Cloud</span>
+              <span class="text-[11px] font-mono text-cyan-400">-25% Latency</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">
+              Cloud-Native Web Platform & Performance Management System
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Delivered a corporate web platform on Azure Static Web Apps in 4 months with 6 developers, integrating Azure Functions serverless APIs to cut manual workflow time by 25%. Built a cloud PMS on Azure App Services with CI/CD on a $100K budget.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-3 border-t border-slate-800/80">
+            <div class="text-[11px] font-mono text-slate-400 space-y-1">
+              <div><strong class="text-slate-300">Timeline:</strong> 4 Months • CI/CD Pipelines</div>
+              <div><strong class="text-slate-300">Stack:</strong> Azure Static Web Apps, Functions, App Services, CI/CD</div>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Azure Static Apps</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Azure Functions</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">CI/CD DevOps</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 5. INTERACTIVE TECHNICAL SKILLS MATRIX -->
+  <!-- ========================================================================= -->
+  <section id="skills" class="py-20 bg-dark-surface/40 border-t border-b border-dark-border">
+    <div class="max-w-7xl mx-auto px-6 space-y-12">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-widest">Enterprise Toolchain</span>
+        <h2 class="text-3xl font-extrabold text-white tracking-tight">Technical Skills Matrix</h2>
+        <p class="text-sm text-slate-400">
+          Comprehensive inventory of verified enterprise platforms, server environments, and governance methodologies.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Category 1 -->
+        <div class="p-6 rounded-2xl bg-dark-card border border-dark-border space-y-3">
+          <div class="flex items-center gap-2.5 text-cyan-400 font-bold text-sm">
+            <i data-lucide="check-square" class="w-4 h-4"></i>
+            <span>Project Governance & SDLC</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">SAFe® 6 Agilist</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Scrum & Agile</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Waterfall / Hybrid</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Sprint Planning</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">WBS Scheduling</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Jira & Confluence</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Microsoft Project</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Azure DevOps</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Vendor RFPs</span>
+          </div>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="p-6 rounded-2xl bg-dark-card border border-dark-border space-y-3">
+          <div class="flex items-center gap-2.5 text-teal-400 font-bold text-sm">
+            <i data-lucide="cloud-rain" class="w-4 h-4"></i>
+            <span>Cloud & Hybrid Identity</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Microsoft Azure</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Azure VMs</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Azure VNets</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Microsoft Entra ID</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Azure AD Connect</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Role-Based Access (RBAC)</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Azure SQL Database</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Azure Static Apps</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">OCI Foundations</span>
+          </div>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="p-6 rounded-2xl bg-dark-card border border-dark-border space-y-3">
+          <div class="flex items-center gap-2.5 text-purple-400 font-bold text-sm">
+            <i data-lucide="cpu" class="w-4 h-4"></i>
+            <span>Server OS & Virtualization</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Windows Server (SME)</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Active Directory (AD DS)</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Group Policy (GPOs)</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">VMware vSphere</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">VMware ESXi Clusters</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">VMware vCenter</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Microsoft Hyper-V</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Ubuntu / RHEL Linux</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">DNS, DHCP, IIS</span>
+          </div>
+        </div>
+
+        <!-- Category 4 -->
+        <div class="p-6 rounded-2xl bg-dark-card border border-dark-border space-y-3">
+          <div class="flex items-center gap-2.5 text-emerald-400 font-bold text-sm">
+            <i data-lucide="database" class="w-4 h-4"></i>
+            <span>SAN Storage & Data Center</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Huawei Dorado 6000 SAN</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Fibre Channel (FC) Fabrics</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">SAN Switch Zoning</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Multi-Site DR Architecture</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Optical DWDM Links</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">HA Firewall Clusters</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">IPsec Site-to-Site VPN</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">UPS & Rack Deployments</span>
+          </div>
+        </div>
+
+        <!-- Category 5 -->
+        <div class="p-6 rounded-2xl bg-dark-card border border-dark-border space-y-3">
+          <div class="flex items-center gap-2.5 text-amber-400 font-bold text-sm">
+            <i data-lucide="boxes" class="w-4 h-4"></i>
+            <span>Enterprise WMS, ERP & Apps</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">EPG LFS V9 WMS</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">EPG TIMESQUARE Cockpit</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">RF Scanning (EAN128)</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Oracle ERP Integration</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Odoo ERP Modules</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">SAP Data Migration</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Interface Flow Design (IFD)</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">REST & SOAP Web Services</span>
+          </div>
+        </div>
+
+        <!-- Category 6 -->
+        <div class="p-6 rounded-2xl bg-dark-card border border-dark-border space-y-3">
+          <div class="flex items-center gap-2.5 text-blue-400 font-bold text-sm">
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+            <span>ITSM, Security & Operations</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">ITIL v3 / v4 Foundation</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Incident & Change Mgmt</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">SLA Governance (98%+)</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Root Cause Analysis (RCA)</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Standard Runbooks (SOPs)</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Azure Network Security Groups</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Canadian Financial Compliance</span>
+            <span class="px-2.5 py-1 rounded-md text-xs bg-slate-900 text-slate-200 border border-slate-800 font-medium">Hardware Lifecycle Mgmt</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 6. PROFESSIONAL EXPERIENCE WALKTHROUGH -->
+  <!-- ========================================================================= -->
+  <section id="experience" class="py-24">
+    <div class="max-w-7xl mx-auto px-6 space-y-12">
+      
+      <div class="space-y-2">
+        <span class="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-widest">Career Milestones</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Professional Experience</h2>
+        <p class="text-sm text-slate-400 max-w-xl">
+          Demonstrated leadership across telecommunications, international money remittance, and retail enterprise IT.
+        </p>
+      </div>
+
+      <!-- Experience Timeline Container -->
+      <div class="space-y-8 relative before:absolute before:inset-0 before:left-5 before:w-0.5 before:bg-slate-800">
+        
+        <!-- Experience 1 -->
+        <div class="relative pl-12 space-y-3">
+          <div class="absolute left-3.5 top-1.5 w-3.5 h-3.5 rounded-full bg-cyan-400 ring-4 ring-dark-base"></div>
+          
+          <div class="p-7 rounded-3xl bg-dark-card border border-dark-border space-y-4 glow-card">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <h3 class="text-lg font-bold text-white">IT Project Manager & Infrastructure Delivery Lead</h3>
+                <div class="text-xs font-semibold text-cyan-400">QAST (Kuwaiti Sudanese Holding Company / Zain Telecommunications Contract)</div>
+              </div>
+              <div class="text-xs font-mono px-3 py-1 rounded-lg bg-dark-surface border border-slate-800 text-slate-300">
+                Sept 2022 – Present
+              </div>
+            </div>
+            
+            <p class="text-xs text-slate-400">
+              Leading enterprise infrastructure, technical projects, and systems engineering for Zain Sudan (tier-1 telecom provider serving 1,000+ staff).
+            </p>
+
+            <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800/80">
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span><strong>Data Center & Disaster Recovery:</strong> Directed multi-site DR deployment from Zain KTN DC to Port Sudan DC, commissioning Huawei Dorado 6000 SAN and VMware clusters 100% on schedule.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span><strong>Tier-1 WMS & Oracle Integration:</strong> Managed $191K EPG LFS V9 integration across 4 warehouses, directing FSD/IFD specs, IPsec VPN, and RF terminals on schedule under a $788K contract.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span><strong>M365 Enterprise Migration:</strong> Migrated 1,000+ users to Microsoft 365 with Azure AD Connect hybrid identity sync, achieving 100% user adoption on schedule with zero downtime.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span><strong>Agile Delivery Governance:</strong> Led bi-weekly sprint planning, standups, and retrospectives across distributed engineering teams with zero sprint slippage.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience 2 -->
+        <div class="relative pl-12 space-y-3">
+          <div class="absolute left-3.5 top-1.5 w-3.5 h-3.5 rounded-full bg-teal-400 ring-4 ring-dark-base"></div>
+          
+          <div class="p-7 rounded-3xl bg-dark-card border border-dark-border space-y-4 glow-card">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <h3 class="text-lg font-bold text-white">IT & Project Coordinator / Systems Administrator (Contract)</h3>
+                <div class="text-xs font-semibold text-teal-400">Home Express International Corporation Inc. — Mississauga, ON, Canada</div>
+              </div>
+              <div class="text-xs font-mono px-3 py-1 rounded-lg bg-dark-surface border border-slate-800 text-slate-300">
+                Aug 2023 – Sept 2024
+              </div>
+            </div>
+            
+            <p class="text-xs text-slate-400">
+              Global remittance institution delivering secure cross-border financial transactions across 120+ countries.
+            </p>
+
+            <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800/80">
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-teal-400 shrink-0 mt-0.5"></i>
+                <span><strong>Canada Branch Infrastructure Rollout:</strong> Planned and deployed complete IT and cloud networking for the Mississauga branch within 2 weeks, linking Azure VNets to UK data centers via IPsec VPN.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-teal-400 shrink-0 mt-0.5"></i>
+                <span><strong>Mobile Remittance App Delivery:</strong> Coordinated iOS and Android app deliverables, securing 100% stakeholder sign-off in 3 months with a 95% first-time UAT pass rate.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-teal-400 shrink-0 mt-0.5"></i>
+                <span><strong>Cloud Security & Compliance:</strong> Enforced network security using Azure NSGs and Entra ID, ensuring 100% compliance with Canadian financial regulations over 12 months.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience 3 -->
+        <div class="relative pl-12 space-y-3">
+          <div class="absolute left-3.5 top-1.5 w-3.5 h-3.5 rounded-full bg-purple-400 ring-4 ring-dark-base"></div>
+          
+          <div class="p-7 rounded-3xl bg-dark-card border border-dark-border space-y-4 glow-card">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <h3 class="text-lg font-bold text-white">User Support & Infrastructure Operations Team Leader</h3>
+                <div class="text-xs font-semibold text-purple-400">QAST (Kuwaiti Sudanese Holding Company / Zain Telecommunications Contract)</div>
+              </div>
+              <div class="text-xs font-mono px-3 py-1 rounded-lg bg-dark-surface border border-slate-800 text-slate-300">
+                Jan 2020 – Sept 2022
+              </div>
+            </div>
+
+            <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800/80">
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-purple-400 shrink-0 mt-0.5"></i>
+                <span><strong>Helpdesk SLA Governance:</strong> Managed 8 support engineers delivering Tier 1–3 IT services for 1,000+ users, maintaining 98%+ SLA adherence across 700+ monthly incidents.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-purple-400 shrink-0 mt-0.5"></i>
+                <span><strong>ITIL Process Re-engineering:</strong> Implemented ITIL-aligned Incident, Request, and Change Management workflows, boosting ticket resolution efficiency by 50% within 6 months.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-purple-400 shrink-0 mt-0.5"></i>
+                <span><strong>SOP Runbooks:</strong> Authored SOP runbooks for Azure administration and desktop troubleshooting, cutting vendor escalations by 50% over 1 year.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience 4 -->
+        <div class="relative pl-12 space-y-3">
+          <div class="absolute left-3.5 top-1.5 w-3.5 h-3.5 rounded-full bg-slate-400 ring-4 ring-dark-base"></div>
+          
+          <div class="p-7 rounded-3xl bg-dark-card border border-dark-border space-y-4 glow-card">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <h3 class="text-lg font-bold text-white">System Administrator</h3>
+                <div class="text-xs font-semibold text-slate-300">Mnour Optics — Khartoum, Sudan & Cairo, Egypt</div>
+              </div>
+              <div class="text-xs font-mono px-3 py-1 rounded-lg bg-dark-surface border border-slate-800 text-slate-300">
+                Jan 2015 – Nov 2019
+              </div>
+            </div>
+
+            <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800/80">
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-slate-400 shrink-0 mt-0.5"></i>
+                <span><strong>SAP to Odoo 8 Migration:</strong> Migrated retail operations across 12 branch locations within 9 months, cutting operational software expenses (OpEx) by 60% with zero data loss.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-slate-400 shrink-0 mt-0.5"></i>
+                <span><strong>Multi-Site Infrastructure:</strong> Administered Windows Server Active Directory and physical server racks across 12 stores, sustaining 99.8% network availability.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 7. EDUCATION, CERTIFICATIONS & CREDENTIALS -->
+  <!-- ========================================================================= -->
+  <section id="credentials" class="py-20 bg-dark-surface/40 border-t border-b border-dark-border">
+    <div class="max-w-7xl mx-auto px-6 space-y-12">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-widest">Verified Credentials</span>
+        <h2 class="text-3xl font-extrabold text-white tracking-tight">Education & Certifications</h2>
+        <p class="text-sm text-slate-400">
+          Academic foundation in Project Management and Computer Science, backed by global vendor certifications.
+        </p>
+      </div>
+
+      <!-- Education Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <div class="p-6 rounded-2xl bg-dark-card border border-dark-border space-y-2">
+          <div class="text-xs font-mono text-cyan-400">Canada • 2025</div>
+          <h3 class="text-base font-bold text-white">Post Graduate Diploma in Business Systems Analysis & Project Management</h3>
+          <div class="text-xs text-slate-300">Canadian College of Business, Science & Technology (CCBST) • Toronto, ON</div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-dark-card border border-dark-border space-y-2">
+          <div class="text-xs font-mono text-purple-400">2012</div>
+          <h3 class="text-base font-bold text-white">Bachelor of Information Technology (B.IT)</h3>
+          <div class="text-xs text-slate-300">The Future University • Khartoum, Sudan</div>
+        </div>
+
+      </div>
+
+      <!-- Certifications Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 pt-4">
+        
+        <div class="p-4 rounded-xl bg-dark-card border border-dark-border space-y-1">
+          <div class="text-xs font-bold text-white flex items-center gap-1.5">
+            <i data-lucide="badge-check" class="w-4 h-4 text-cyan-400"></i>
+            <span>Certified SAFe® 6 Agilist</span>
+          </div>
+          <div class="text-[11px] text-slate-400">Scaled Agile Inc. • 2023</div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-dark-card border border-dark-border space-y-1">
+          <div class="text-xs font-bold text-white flex items-center gap-1.5">
+            <i data-lucide="badge-check" class="w-4 h-4 text-teal-400"></i>
+            <span>Oracle Cloud (OCI) Foundations</span>
+          </div>
+          <div class="text-[11px] text-slate-400">Oracle (1Z0-1085-23) • 2023</div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-dark-card border border-dark-border space-y-1">
+          <div class="text-xs font-bold text-white flex items-center gap-1.5">
+            <i data-lucide="badge-check" class="w-4 h-4 text-amber-400"></i>
+            <span>Google Project Management</span>
+          </div>
+          <div class="text-[11px] text-slate-400">Google • 2021</div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-dark-card border border-dark-border space-y-1">
+          <div class="text-xs font-bold text-white flex items-center gap-1.5">
+            <i data-lucide="badge-check" class="w-4 h-4 text-blue-400"></i>
+            <span>ITIL Foundation in ITSM</span>
+          </div>
+          <div class="text-[11px] text-slate-400">AXELOS • 2016</div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-dark-card border border-dark-border space-y-1">
+          <div class="text-xs font-bold text-white flex items-center gap-1.5">
+            <i data-lucide="badge-check" class="w-4 h-4 text-purple-400"></i>
+            <span>Microsoft MCTS Active Directory</span>
+          </div>
+          <div class="text-[11px] text-slate-400">Microsoft • 2013</div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-dark-card border border-dark-border space-y-1">
+          <div class="text-xs font-bold text-white flex items-center gap-1.5">
+            <i data-lucide="clock" class="w-4 h-4 text-cyan-400"></i>
+            <span>Azure Administrator (AZ-104)</span>
+          </div>
+          <div class="text-[11px] text-slate-400">Candidate / In Progress</div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-dark-card border border-dark-border space-y-1">
+          <div class="text-xs font-bold text-white flex items-center gap-1.5">
+            <i data-lucide="clock" class="w-4 h-4 text-amber-400"></i>
+            <span>PMP® (Exam Candidate)</span>
+          </div>
+          <div class="text-[11px] text-slate-400">Project Management Institute</div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-dark-card border border-dark-border space-y-1">
+          <div class="text-xs font-bold text-white flex items-center gap-1.5">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+            <span>TMU Workplace Communication</span>
+          </div>
+          <div class="text-[11px] text-slate-400">Toronto Metropolitan Univ • 2023</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 8. CONTACT & RESUME DOWNLOAD SECTION -->
+  <!-- ========================================================================= -->
+  <section id="contact" class="py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Direct Contacts -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="space-y-2">
+            <span class="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-widest">Connect Directly</span>
+            <h2 class="text-3xl font-extrabold text-white tracking-tight">Let's Discuss Enterprise Delivery</h2>
+            <p class="text-sm text-slate-400">
+              Open to senior roles in IT Project Management, Cloud & Systems Leadership across the Greater Toronto Area (Hybrid/Onsite) and Remote Canada.
+            </p>
+          </div>
+
+          <!-- Contact Details Cards -->
+          <div class="space-y-3 text-xs">
+            
+            <a href="mailto:yasir.hamadelnil@gmail.com" class="p-4 rounded-2xl bg-dark-card border border-dark-border hover:border-cyan-500/50 flex items-center gap-3.5 transition group">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold shrink-0">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-slate-400 font-medium">Direct Email</div>
+                <div class="text-white font-bold group-hover:text-cyan-400 transition">yasir.hamadelnil@gmail.com</div>
+              </div>
+            </a>
+
+            <a href="tel:+12895478482" class="p-4 rounded-2xl bg-dark-card border border-dark-border hover:border-teal-500/50 flex items-center gap-3.5 transition group">
+              <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center font-bold shrink-0">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-slate-400 font-medium">Direct Phone</div>
+                <div class="text-white font-bold group-hover:text-teal-400 transition">(289) 547-8482</div>
+              </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/yasir-hamadelnil" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-dark-card border border-dark-border hover:border-blue-500/50 flex items-center gap-3.5 transition group">
+              <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold shrink-0">
+                <i data-lucide="linkedin" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-slate-400 font-medium">LinkedIn Profile</div>
+                <div class="text-white font-bold group-hover:text-blue-400 transition">linkedin.com/in/yasir-hamadelnil</div>
+              </div>
+            </a>
+
+            <div class="p-4 rounded-2xl bg-dark-card border border-dark-border flex items-center gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold shrink-0">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-slate-400 font-medium">Location</div>
+                <div class="text-white font-bold">Milton, ON, Canada (Halton / GTA)</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Resume Download Strip -->
+          <div class="p-5 rounded-2xl bg-dark-surface border border-cyan-500/30 space-y-3">
+            <div class="font-bold text-white text-xs flex items-center gap-2">
+              <i data-lucide="download" class="w-4 h-4 text-cyan-400"></i>
+              <span>Download Master Career Resume</span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <a href="/api/jobs/download?file=Yasir_Hamadelnil_Master_Resume&ext=docx&master=true" target="_blank" class="px-3.5 py-1.5 rounded-lg bg-cyan-950 text-cyan-300 hover:bg-cyan-900 border border-cyan-700/60 text-xs font-semibold flex items-center gap-1.5 transition">
+                <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                <span>Word (.docx)</span>
+              </a>
+              <a href="/api/jobs/download?file=Yasir_Hamadelnil_Master_Resume&ext=pdf&master=true" target="_blank" class="px-3.5 py-1.5 rounded-lg bg-purple-950 text-purple-300 hover:bg-purple-900 border border-purple-700/60 text-xs font-semibold flex items-center gap-1.5 transition">
+                <i data-lucide="file" class="w-3.5 h-3.5"></i>
+                <span>PDF (.pdf)</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Interactive Contact Form -->
+        <div class="lg:col-span-7">
+          <div class="p-8 sm:p-10 rounded-3xl bg-dark-card border border-dark-border shadow-2xl space-y-6 glow-card">
+            
+            <div class="space-y-1">
+              <h3 class="text-xl font-bold text-white">Send Direct Inscription</h3>
+              <p class="text-xs text-slate-400">Fill out this quick form to initiate an introductory conversation.</p>
+            </div>
+
+            <form id="contact-form" class="space-y-4" onsubmit="handleContactSubmit(event)">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="space-y-1">
+                  <label class="text-xs font-semibold text-slate-300">Your Name *</label>
+                  <input type="text" id="contact-name" required placeholder="e.g. Sarah Jenkins" class="w-full bg-dark-base border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500">
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Your Email" required>
+                <div class="space-y-1">
+                  <label class="text-xs font-semibold text-slate-300">Your Email *</label>
+                  <input type="email" id="contact-email" required placeholder="s.jenkins@company.com" class="w-full bg-dark-base border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500">
                 </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" rows="4" placeholder="How can I help you?" required></textarea>
-                </div>
-                <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+              </div>
+
+              <div class="space-y-1">
+                <label class="text-xs font-semibold text-slate-300">Subject / Role Inquiry *</label>
+                <input type="text" id="contact-subject" required placeholder="e.g. IT Project Manager Opportunity / Technical Architecture" class="w-full bg-dark-base border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500">
+              </div>
+
+              <div class="space-y-1">
+                <label class="text-xs font-semibold text-slate-300">Message *</label>
+                <textarea id="contact-message" required rows="4" placeholder="Hello Yasir, we are interested in discussing your experience with enterprise systems..." class="w-full bg-dark-base border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"></textarea>
+              </div>
+
+              <button type="submit" id="btn-submit-contact" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-teal-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all hover:scale-[1.01]">
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span>Transmit Message</span>
+              </button>
             </form>
+
+            <div id="contact-success" class="hidden p-4 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 text-xs flex items-center gap-2.5">
+              <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+              <span>Thank you! Your email client has been prepared, or you can email directly at yasir.hamadelnil@gmail.com.</span>
+            </div>
+
+          </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        © 2026 Yasir Hamadelnil. All rights reserved.
-    </footer>
+      </div>
 
-    <!-- AOS JavaScript Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({
-            once: true,
-            easing: 'ease-out-cubic',
-            offset: 120
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 9. FOOTER -->
+  <!-- ========================================================================= -->
+  <footer class="bg-dark-base border-t border-dark-border py-12">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-slate-400">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-dark-card border border-dark-border flex items-center justify-center font-mono font-bold text-cyan-400 text-xs">
+          YH
+        </div>
+        <div>
+          <div class="font-bold text-white">Yasir Hamadelnil</div>
+          <div class="text-[11px] text-slate-500">Certified SAFe® 6 Agilist • IT Project Manager</div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="#specializations" class="hover:text-cyan-400 transition">Specializations</a>
+        <a href="#case-studies" class="hover:text-cyan-400 transition">Case Studies</a>
+        <a href="#skills" class="hover:text-cyan-400 transition">Skills</a>
+        <a href="#credentials" class="hover:text-cyan-400 transition">Credentials</a>
+        <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+      </div>
+
+      <div class="text-[11px] font-mono text-slate-500">
+        © 2026 Yasir Hamadelnil. All Rights Reserved.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- 10. CLIENT-SIDE INTERACTION SCRIPT -->
+  <!-- ========================================================================= -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Project Filter Functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Toggle active button style
+        filterBtns.forEach(b => {
+          b.classList.remove('active', 'bg-cyan-500', 'text-slate-950');
+          b.classList.add('bg-dark-card', 'text-slate-300');
         });
-    </script>
+        btn.classList.add('active', 'bg-cyan-500', 'text-slate-950');
+        btn.classList.remove('bg-dark-card', 'text-slate-300');
+
+        const filter = btn.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          const categories = card.getAttribute('data-category') || '';
+          if (filter === 'all' || categories.includes(filter)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        lucide.createIcons();
+      });
+    });
+
+    // Contact Form Handler
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('contact-name').value;
+      const email = document.getElementById('contact-email').value;
+      const subject = document.getElementById('contact-subject').value;
+      const message = document.getElementById('contact-message').value;
+
+      // Construct mailto URL fallback
+      const mailtoUrl = `mailto:yasir.hamadelnil@gmail.com?subject=${encodeURIComponent('[Portfolio Inquiry] ' + subject)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message)}`;
+
+      document.getElementById('contact-success').classList.remove('hidden');
+      window.open(mailtoUrl, '_blank');
+    }
+  </script>
 </body>
 </html>
